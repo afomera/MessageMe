@@ -2,4 +2,10 @@
 
 <%= form_tag messages_path do %>
 <p>Sending a text message to:</p>
+<input type="text" name="phone_number">
+<br><br>
+Message:<br>
+<input type="textarea" name="body">
+<Br><br>
+<input type="submit" value="Submit">
 <% end %>
