@@ -8,7 +8,7 @@ class SMS
   end
 
   def send(body)
-    client.account.sms.messages.create(
+    client.account.messages.create(
       :from => Rails.application.secrets.twilio_phone_number,
       :to => @to_phone_number,
       :body => body
