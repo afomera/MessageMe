@@ -5,6 +5,7 @@ An app to play with Twilio's Messaging API.
 Right now it has the ability to send an text message to a phone number inputted. But there is so much more left to do.
 
 ## Roadmap
+* Setup Mailers to work properly
 * Do the Message sending in a Job
 * Logging of messages
 * Create account limits, allow user to subscribe for more messages per month.
