@@ -15,6 +15,10 @@
  */
  @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
 
+ $well-bg: #FFFFFF;
+ $navbar-default-brand-color: #2ecc71;
+ $brand-primary: #2ecc71;
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
@@ -22,4 +26,12 @@
 
  body {
    font-family: "Roboto", sans-serif;
- }
+  }
+
+  .navbar-brand {
+    font-weight: bold;
+  }
+  // For giving the wells a bit more pop color
+  .blurb {
+    background-color: red;
+  }
