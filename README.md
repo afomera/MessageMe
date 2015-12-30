@@ -6,7 +6,10 @@ Right now it has the ability to send an text message to a phone number inputted.
 
 ## Roadmap
 * Setup Mailers to work properly
-* Do the Message sending in a Job
+* Pretty up Devise Mailers. Add custom mailers of my our own, welcome email with Getting Started Video
+* Getting Started Video / How to Use
+* Support System / Email Contact form
+* Privacy Policy / Terms of Use? 
 * Logging of messages
 * Create account limits, allow user to subscribe for more messages per month.
  * Free/Basic/Pro plans
