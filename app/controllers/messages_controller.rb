@@ -9,7 +9,8 @@ class MessagesController < ApplicationController
     phone_number = params[:phone_number]
     message_body = params[:body]
 
-    SMS.new(phone_number).send message_body
+    # Delegate sending the SMS to a background Job
+    SmsJob.new.async.perform(phone_number, message_body)
 
     redirect_to root_path, notice: "Your message has been sent, thank you!"
   end
