@@ -1,18 +1,28 @@
-<h1>Send a Text Message!</h1>
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-4">
+    <h1 class="text-center">Send a Text Message!</h1>
 
-<%= form_for (@message) do |f| %>
+    <%= form_for (@message) do |f| %>
 
-  <% if @message.errors.any? %>
-    <ul>
-      <% @message.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <% if @message.errors.any? %>
+      <h3 class="text-center">Whoops! Please fix the following errors!</h3>
+        <ul>
+          <% @message.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
       <% end %>
-    </ul>
-  <% end %>
 
-  <%= f.label :to_phone_number %><br>
-  <%= f.text_field :to_phone_number %><br><br>
-  <%= f.label :body %><br>
-  <%= f.text_field :body %><br><br>
-  <%= f.submit "Send Message", class: 'btn btn-primary' %>
-<% end %>
+      <div class="form-group">
+        <%= f.text_field :to_phone_number, placeholder: 'Phone Number, no dashes please!', class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.text_field :body, placeholder: 'Message',class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Send Message", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
