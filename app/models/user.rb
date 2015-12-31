@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_one :phone_number
   has_many :messages
-  
+
   validates :first_name, presence: true
   validates :last_name, presence: true
 

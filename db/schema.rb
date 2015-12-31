@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151231015824) do
+ActiveRecord::Schema.define(version: 20151231054745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 20151231015824) do
   end
 
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
+
+  create_table "phone_numbers", force: :cascade do |t|
+    t.string   "phone_number"
+    t.string   "pin"
+    t.boolean  "verified"
+    t.integer  "user_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "phone_numbers", ["user_id"], name: "index_phone_numbers_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -49,4 +60,5 @@ ActiveRecord::Schema.define(version: 20151231015824) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "messages", "users"
+  add_foreign_key "phone_numbers", "users"
 end
