@@ -23,3 +23,9 @@ $(document).ready(function() {
     })
   }, 4500 );
 });
+
+$(document).on('ready', function(event) {
+  // initialize persistent state
+  Turbolinks.enableProgressBar();
+//  Turbolinks.ProgressBar.enable();
+});

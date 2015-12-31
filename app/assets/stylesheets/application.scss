@@ -24,6 +24,11 @@
 
  @import "font-awesome";
 
+ html.turbolinks-progress-bar::before {
+   background-color: red !important;
+   height: 5px !important;
+ }
+
  body {
    font-family: "Roboto", sans-serif;
   }
