@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyString
+  to_phone_number: MyString
+  ip_address: MyString
+  status: MyString
+  user_id: 
+
+two:
+  body: MyString
+  to_phone_number: MyString
+  ip_address: MyString
+  status: MyString
+  user_id: 

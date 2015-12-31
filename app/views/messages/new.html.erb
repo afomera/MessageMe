@@ -1,11 +1,18 @@
 <h1>Send a Text Message!</h1>
 
-<%= form_tag messages_path do %>
-<p>Sending a text message to:</p>
-<input type="text" name="phone_number">
-<br><br>
-Message:<br>
-<input type="textarea" name="body">
-<Br><br>
-<input type="submit" value="Submit">
+<%= form_for (@message) do |f| %>
+
+  <% if @message.errors.any? %>
+    <ul>
+      <% @message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= f.label :to_phone_number %><br>
+  <%= f.text_field :to_phone_number %><br><br>
+  <%= f.label :body %><br>
+  <%= f.text_field :body %><br><br>
+  <%= f.submit "Send Message", class: 'btn btn-primary' %>
 <% end %>
