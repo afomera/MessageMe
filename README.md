@@ -4,6 +4,9 @@ An app to play with Twilio's Messaging API.
 
 Right now it has the ability to send an text message to a phone number inputted. But there is so much more left to do.
 
+It was originally planned to be SaaS app, where it'd take payments for your useage of the app, but due to the terms of payment providers
+that is not going to happen. 
+
 ## Roadmap
 * Setup Mailers to work properly
 * Pretty up Devise Mailers. Add custom mailers of my our own, welcome email with Getting Started Video
