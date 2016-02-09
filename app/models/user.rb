@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :phone_number
+  has_many :contacts
   has_many :messages
 
   validates :first_name, presence: true

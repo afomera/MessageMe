@@ -1,0 +1,25 @@
+<%= form_for (@contact) do |f| %>
+  <% if @contact.errors.any? %>
+  <h3 class="text-center">Whoops! Please fix the following errors!</h3>
+    <ul>
+      <% @contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div class="form-group">
+    <%= f.text_field :first_name, placeholder: 'First Name', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+      <%= f.text_field :last_name, placeholder: 'Last Name', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :phone_number, placeholder: 'Phone Number, no dashes please!', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :email_address, placeholder: 'Email Address', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Send Message", class: 'btn btn-primary' %>
+  </div>
+<% end %>
