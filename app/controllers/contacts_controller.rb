@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_contact, only: [:edit, :update, :destroy]
 
   def index
     # Contacts belongs_to user so only show the logged in users contacts
@@ -29,9 +29,6 @@ class ContactsController < ApplicationController
     else
       render 'edit'
     end
-  end
-
-  def show
   end
 
   def destroy
