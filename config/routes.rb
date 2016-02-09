@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  resources :contacts
   resources :messages
   resource :phone_numbers, only: [:new, :create]
   post 'phone_numbers/verify' => "phone_numbers#verify"
-  
-  root to: 'pages#home'
 
+  root to: 'pages#home'
 end
