@@ -42,7 +42,7 @@ class ContactsController < ApplicationController
     end
 
     def set_contact
-      @contact = Contact.find(params[:id])
+      @contact = current_user.contacts.find(params[:id])
     end
 
 end
