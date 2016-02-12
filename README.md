@@ -5,7 +5,7 @@ An app to play with Twilio's Messaging API.
 Right now it has the ability to send an text message to a phone number inputted. But there is so much more left to do.
 
 It was originally planned to be SaaS app, where it'd take payments for your useage of the app, but due to the terms of payment providers
-that is not going to happen. 
+that is not going to happen.
 
 ## Roadmap
 * Setup Mailers to work properly
@@ -24,3 +24,9 @@ that is not going to happen.
 
 ## Contributing
 Feel free to submit pull requests <3. Instructions on how to get the project setup will come soon.
+
+
+---
+
+## Technical Notes
+Groups are composed of many contacts and contacts can have many groups. But a contact should be unique to each group, meaning one person cannot be added multiple times to the same group. But one contact can be a member of multiple different groups. 
