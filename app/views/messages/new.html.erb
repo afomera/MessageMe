@@ -2,30 +2,7 @@
   <div class="col-sm-4 col-sm-offset-4">
     <h1 class="text-center">Send a Text Message!</h1>
 
-    <%= form_for (@message) do |f| %>
-
-      <% if @message.errors.any? %>
-      <h3 class="text-center">Whoops! Please fix the following errors!</h3>
-        <ul>
-          <% @message.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      <% end %>
-
-      <div class="form-group">
-        <% f.text_field :to_phone_number, placeholder: 'Phone Number, no dashes please!', class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.collection_select :to_phone_number, current_user.contacts.all, :phone_number, :full_name_with_phone, {prompt: 'Select a contact'}, {class: 'form-control'} %>
-      </div>
-      <div class="form-group">
-        <%= f.text_area :body, placeholder: 'What would you like to say?', rows: '4', class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.submit "Send Message", class: 'btn btn-primary' %>
-      </div>
-    <% end %>
+    <%= render 'form' %>
 
   </div>
 </div>
