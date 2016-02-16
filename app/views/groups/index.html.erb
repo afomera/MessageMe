@@ -1,4 +1,4 @@
-<div class="col-sm-6 col-sm-offset-3">
+<div class="col-sm-8 col-sm-offset-2">
   <h1>All Groups</h1>
 
   <%= link_to 'New Group', new_group_path, class: 'btn btn-primary' %>
@@ -8,6 +8,7 @@
        <tr>
          <th>Name</th>
          <th>Description</th>
+         <th># of Contacts</th>
          <th></th>
        </tr>
      </thead>
@@ -20,6 +21,9 @@
          </td>
          <td>
            <%= group.description %>
+         </td>
+         <td>
+           <%= group.contacts.count %>
          </td>
          <td>
            <%= link_to edit_group_path(group) do %>
