@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_one :phone_number
   has_many :contacts
+  has_many :contact_groups, :through => :contacts
   has_many :groups
   has_many :messages
 
