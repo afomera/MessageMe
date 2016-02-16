@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'contact_groups/create'
-
   devise_for :users
 
   resources :contacts, except: [:show]
