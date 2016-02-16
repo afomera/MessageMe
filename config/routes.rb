@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resource :phone_numbers, only: [:new, :create]
   post 'phone_numbers/verify' => "phone_numbers#verify"
 
+  get 'dashboard' => 'dashboard#index'
   root to: 'pages#home'
 end
