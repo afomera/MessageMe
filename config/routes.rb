@@ -9,5 +9,13 @@ Rails.application.routes.draw do
   post 'phone_numbers/verify' => "phone_numbers#verify"
 
   get 'dashboard' => 'dashboard#index'
-  root to: 'pages#home'
+  
+  authenticated :user do
+    root to: "dashboard#index", as: :authenticated_root
+  end
+
+  unauthenticated do
+    root to: "pages#home"
+  end
+
 end
