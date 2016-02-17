@@ -8,4 +8,9 @@ class ContactGroupsController < ApplicationController
     redirect_to contacts_path, notice: "Added #{@contact.first_name} to #{@group.name}"
   end
 
+  def destroy
+    @contact_group = ContactGroup.find_by(contact: params[:id])
+    @contact_group.destroy
+    redirect_to root_path, notice: "Contact has been removed from that group"
+  end
 end
