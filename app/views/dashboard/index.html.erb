@@ -30,7 +30,7 @@
             <li>  <%= contact.first_name %>
               <%= contact.last_name %> |
               <%= contact.phone_number %>
-              <%= link_to 'Del',contact_group_path(contact), method: :delete, data: {confirm: 'Are you sure?'} %>
+              <%= link_to 'Del',group_contact_path(group, contact), method: :delete, data: {confirm: 'Are you sure?'} %>
             </li>
             <% end %>
       </ul>
