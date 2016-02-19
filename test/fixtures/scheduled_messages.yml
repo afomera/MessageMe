@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  group_id: 
+  body: MyString
+  scheduled_at: 2016-02-17 22:53:26
+  status: MyString
+  user_id: 
+  last_sent_on: 2016-02-17 22:53:26
+
+two:
+  group_id: 
+  body: MyString
+  scheduled_at: 2016-02-17 22:53:26
+  status: MyString
+  user_id: 
+  last_sent_on: 2016-02-17 22:53:26

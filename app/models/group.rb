@@ -4,4 +4,5 @@ class Group < ActiveRecord::Base
 
   has_many :contacts, through: :contact_groups, dependent: :destroy
   has_many :contact_groups
+  has_many :scheduled_messages
 end

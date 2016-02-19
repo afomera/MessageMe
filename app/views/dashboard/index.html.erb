@@ -1,7 +1,12 @@
 <div class="row">
 
+  <div class="col-sm-3">
+    <h1><%= fa_icon 'comment', text: 'Send a message'%></h1>
+    <%= render 'messages/form' %>
+  </div>
+
   <div class="col-sm-3 col-sm-offset-1">
-    <h1>Contacts</h1>
+    <h1><%= fa_icon 'book', text: 'Contacts'%></h1>
     <p>
       <%= link_to root_path do %>
         <%= fa_icon 'plus', text: 'Add Contact' %>
@@ -12,12 +17,10 @@
       <hr>
     <% end %>
   </div>
-  <div class="col-sm-3">
-    <h1>Send a message</h1>
-    <%= render 'messages/form' %>
-  </div>
+
   <div class="col-sm-3 col-sm-offset-1">
-    <h1>Groups</h1>
+    <h1><%= fa_icon 'group', text: 'Groups'%></h1>
+
     <p>
       <%= link_to root_path do %>
         <%= fa_icon 'plus', text: 'Add Group' %>

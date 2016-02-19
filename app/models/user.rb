@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :contact_groups, :through => :contacts
   has_many :groups
   has_many :messages
+  has_many :scheduled_messages
 
   validates :first_name, presence: true
   validates :last_name, presence: true

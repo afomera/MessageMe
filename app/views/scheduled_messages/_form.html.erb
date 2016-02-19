@@ -1,0 +1,23 @@
+<%= form_for (@scheduled_message) do |f| %>
+  <% if @scheduled_message.errors.any? %>
+  <h3 class="text-center">Whoops! Please fix the following errors!</h3>
+    <ul>
+      <% @scheduled_message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.collection_select :group_id, current_user.groups.all, :id, :name, {prompt: 'Select a Group'}, {class: 'form-control'} %>
+  </div>
+  <div class="form-group">2016-02-18 00:03:38 -0600
+    <%= f.datetime_field :scheduled_at, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :body, placeholder: 'What would you like to say?', rows: '4', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Schedule Message", class: 'btn btn-primary' %>
+  </div>
+<% end %>

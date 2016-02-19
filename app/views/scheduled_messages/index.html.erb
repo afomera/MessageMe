@@ -1,0 +1,39 @@
+<div class="col-sm-8 col-sm-offset-2">
+  <h1>Scheduled Messages</h1>
+
+  <%= link_to 'New Scheduled Message', new_scheduled_message_path, class: 'btn btn-primary' %>
+  <hr>
+  <table class="table table-bordered table-striped table-responsive">
+     <thead>
+       <tr>
+         <th>Group Name</th>
+         <th>Body</th>
+         <th>Scheduled at</th>
+         <th></th>
+       </tr>
+     </thead>
+     <tbody>
+
+       <% @scheduled_messages.each do |message| %>
+       <tr>
+         <td>
+           <%= message.group.name %> to:<br>
+           <% message.group.contacts.each do |c| %>
+             <%= c.full_name_with_phone %>
+           <% end %>
+         </td>
+         <td>
+           <%= message.body %>
+         </td>
+         <td>
+           <%= message.scheduled_at %>
+         </td>
+         <td>
+          <%= message.status %>
+         </td>
+       </tr>
+       <% end %>
+     </tbody>
+   </table>
+
+</div>

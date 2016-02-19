@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resource :phone_numbers, only: [:new, :create]
   post 'phone_numbers/verify' => "phone_numbers#verify"
 
+  resources :scheduled_messages
+
   get 'dashboard' => 'dashboard#index'
 
   authenticated :user do
