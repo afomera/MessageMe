@@ -29,3 +29,13 @@ $(document).on('ready', function(event) {
   Turbolinks.enableProgressBar();
 //  Turbolinks.ProgressBar.enable();
 });
+
+$(document).ready(function() {
+  $(".send-group-msg").click(function(e) {
+    e.preventDefault();
+    $(".contact-selection").addClass("hidden");
+    $(".send-group-msg").addClass("hidden");
+    $(".group-selection").removeClass("hidden");
+    console.log("test click");
+  })
+});

@@ -5,6 +5,8 @@ class Message < ActiveRecord::Base
 
   after_commit :send_sms_job
 
+  attr_reader :group_id
+
   private
     def send_sms_job
       SendSmsJob.perform_later self
