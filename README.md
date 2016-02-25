@@ -48,14 +48,22 @@ SMS.new(message.to_phone_number).send message.body
 
 Scheduled Messages are stored in a ScheduledMessage model that contains a group (id), a body of a message to send, and a scheduled_at time that the message needs to be sent on/slightly after.
 
-A rake task has been created to look for all ScheduledMessages with a
+A rake task has been created to look for all ScheduledMessages with a ActiveRecord query like so
 
 ```
 ScheduledMessage.where("scheduled_at <= ? AND status = ?", Time.zone.now, 'pending')
 ```
 
-query. This ensures that when the rake task is ran, it will find all Scheduled Messages that should have been ran and the status of pending. Then it goes and looks up the Group, finds all the contacts and then obtains the contacts' phone_number for *each* of the scheduled messages.
+This ensures that when the rake task is ran, it will find all Scheduled Messages that should have been ran and the status of pending. Then it goes and looks up the Group, finds all the contacts and then obtains the contacts' phone_number for *each* of the scheduled messages.
 
 Each contact needs a message sent for that ScheduledMessage.
 
 After the messages are sent, the ScheduledMessage status should be updated to 'sent' or 'scheduled'.
+
+***The quick and dirty approach for sending the messages***
+
+The quick approach would be inside the job where it loops through the contacts, just call the SMS class, and pass in the body of the scheduled message and the contacts phone_number. Then you could just mark the ScheduledMessage as 'sent' then.
+
+Passing it to a job and scheduling the job to complete all the above at the scheduled_at time is another way we could handle it. However for now while we are ok with things being sent as often as the cron is ran, we can just send the messages directly to Twilio.
+
+The best course of action may be to create a Message record for each contact per group for the ScheduledMessage and just let it send the SMS as it does for the one-off messages after_commit via the SendSmsJob. That is a massive amount of Message records and the downside is we have no easy way to attach a sender IP address to the Message model without looking up the user that scheduled the message.  
