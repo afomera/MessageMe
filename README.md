@@ -4,27 +4,25 @@ An app to play with Twilio's Messaging API.
 
 Right now it has the ability to send an text message to a phone number inputted. But there is so much more left to do.
 
-It was originally planned to be SaaS app, where it'd take payments for your useage of the app, but due to the terms of payment providers
-that is not going to happen.
+It was originally planned to be SaaS app, where it'd take payments for your usage of the app, but due to the terms of payment providers that is not going to happen.
 
 ## Roadmap
+* Polish the views, cleanup the UI
 * Setup Mailers to work properly
+* Prep for deployment, ensure RVM on production server is setup to handle whenever (special rvm stuff on readme)
+* Devise inviteable to add Users to the site to start?
 * Pretty up Devise Mailers. Add custom mailers of my our own, welcome email with Getting Started Video
 * Getting Started Video / How to Use
 * Support System / Email Contact form
 * Privacy Policy / Terms of Use?
-* Logging of messages
-* Create account limits, allow user to subscribe for more messages per month.
- * Free/Basic/Pro plans
- * Pro comes with better logging / scheduled messages?
- * Address Book of people to message for folks on Basic / Pro?
+* Create account limits, allow user to contact Team to raise limits.
 * Would like to be able to handle the replies in some shape or fashion
+  * Because of how the app is setup, a generalized reply sent letting them know replies are not allowed will probably have to do for now.
+  * Biggest concern I have is the messages wouldn't identify who sent them, so maybe we should tag on the user name to the messages to ensure the people know who sent them?
 * Admin Interface for viewing logs / account limits / subscribed users etc.
-* The ability to send a shortened 'message' could be nice, give the user a way to click to read more sort of like twitlonger.
 
 ## Contributing
 Feel free to submit pull requests <3. Instructions on how to get the project setup will come soon.
-
 
 ---
 
