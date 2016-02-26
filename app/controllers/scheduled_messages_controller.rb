@@ -11,6 +11,7 @@ class ScheduledMessagesController < ApplicationController
 
   def create
     @scheduled_message = current_user.scheduled_messages.build(scheduled_message_params)
+    @scheduled_message.status = 'pending'
     if @scheduled_message.save
       redirect_to root_path, notice: 'Scheduled Message Saved!'
     else
