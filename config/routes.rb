@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :messages
   resource :phone_numbers, only: [:new, :create]
   post 'phone_numbers/verify' => "phone_numbers#verify"
-
+  post 'receive_sms' => 'twilio#index'
   resources :scheduled_messages
 
   get 'dashboard' => 'dashboard#index'
