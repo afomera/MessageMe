@@ -11,8 +11,8 @@
   <div class="form-group">
     <%= f.collection_select :group_id, current_user.groups.all, :id, :name, {prompt: 'Select a Group'}, {class: 'form-control'} %>
   </div>
-  <div class="form-group">2016-02-18 00:03:38 -0600
-    <%= f.datetime_field :scheduled_at, class: 'form-control' %>
+  <div class="form-group">2016-02-18 00:03:38 -0600 | <%= Time.zone.now + 1.minute %>
+    <%= f.datetime_select :scheduled_at, class: 'form-control', id: 'datetimepicker' %>
   </div>
   <div class="form-group">
     <%= f.text_area :body, placeholder: 'What would you like to say?', rows: '4', class: 'form-control' %>

@@ -15,6 +15,8 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require turbolinks
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
 
 $(document).ready(function() {
@@ -39,4 +41,8 @@ $(document).ready(function() {
     $(".group-selection").removeClass("hidden");
     console.log("test click");
   })
+});
+
+$(document).ready(function() {
+  $('#datetimepicker').datetimepicker();
 });
