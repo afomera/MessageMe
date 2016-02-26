@@ -6,6 +6,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 </head>
 <body>
   <%= render 'layouts/header' %>
@@ -13,6 +15,19 @@
   <div class="container-fluid">
     <%= flash_messages %>
     <%= yield %>
+
+    <footer>
+      <div class="pull-left">
+        Made with <%= fa_icon 'heart' %> by Andrew Fomera.
+        <a href="https://twitter.com/AndrewFomera" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @AndrewFomera</a>
+        </a>
+      </div>
+      <div class="pull-right">
+        <%= link_to "Contact Support", root_path %> |
+        <%= link_to "Terms", root_path %> |
+        <%= link_to "Privacy", root_path %>
+      </div>
+    </footer>
   </div>
 </body>
 </html>
