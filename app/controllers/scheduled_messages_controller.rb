@@ -2,7 +2,7 @@ class ScheduledMessagesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @scheduled_messages = current_user.scheduled_messages.all
+    @scheduled_messages = current_user.scheduled_messages.all.order("created_at ASC")
   end
 
   def new

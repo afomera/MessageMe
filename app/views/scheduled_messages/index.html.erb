@@ -14,7 +14,7 @@
      </thead>
      <tbody>
 
-       <% @scheduled_messages.each do |message| %>
+       <% @scheduled_messages.sort_by(&:status).each do |message| %>
        <tr>
          <td>
            <%= message.group.name %> to:<br>
