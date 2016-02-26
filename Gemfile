@@ -24,3 +24,5 @@ gem 'font-awesome-rails'
 gem 'devise', '~> 3.5.2'
 gem 'twilio-ruby', '~> 4.6.0'
 gem 'sucker_punch', '~> 1.5.1'
+gem 'jquery-turbolinks', '~> 2.1'
+gem 'whenever', require: false
