@@ -5,7 +5,7 @@ task :schedule_message => :environment do
     @group.contacts.each do |contacts|
       # Here is where we create a message to be sent out for each contact in the Group
       # receiving the scheduled message
-      SMS.new(contacts.phone_number).send scheduled.body
+      SMS.new(contacts.phone_number, scheduled.user_id).send scheduled.body
       #Message.create(
       #  user: scheduled.user,
       #  body: scheduled.body,
@@ -13,7 +13,7 @@ task :schedule_message => :environment do
       #  ip_address: scheduled.user.current_sign_in_ip,
       #  status: 'pending'
       #)
-      
+
     end
 
     scheduled.update(status: "sent")
