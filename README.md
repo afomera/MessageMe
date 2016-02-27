@@ -8,13 +8,11 @@ It was originally planned to be SaaS app, where it'd take payments for your usag
 
 ## Roadmap
 * Polish the views, cleanup the UI
+* AJAXify dashboard for contacts + groups + messaging
 * Setup Mailers to work properly
 * Prep for deployment, ensure RVM on production server is setup to handle whenever (special rvm stuff on readme)
-* Devise inviteable to add Users to the site to start?
-* Pretty up Devise Mailers. Add custom mailers of my our own, welcome email with Getting Started Video
-* Getting Started Video / How to Use
-* Create account limits, allow user to contact Team to raise limits.
-* Admin Interface for viewing logs / account limits / subscribed users etc.
+* Devise-inviteable to add Users to the site to start?
+* DEPLOY BABY.
 
 ## Contributing
 Feel free to submit pull requests <3. Instructions on how to get the project setup will come soon.
