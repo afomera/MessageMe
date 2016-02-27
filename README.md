@@ -13,7 +13,6 @@ It was originally planned to be SaaS app, where it'd take payments for your usag
 * Devise inviteable to add Users to the site to start?
 * Pretty up Devise Mailers. Add custom mailers of my our own, welcome email with Getting Started Video
 * Getting Started Video / How to Use
-* Privacy Policy / Terms of Use?
 * Create account limits, allow user to contact Team to raise limits.
 * Admin Interface for viewing logs / account limits / subscribed users etc.
 
