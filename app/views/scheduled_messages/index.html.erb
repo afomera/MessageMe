@@ -4,6 +4,11 @@
 
     <%= link_to 'New Scheduled Message', new_scheduled_message_path, class: 'btn btn-primary' %>
     <hr>
+
+    <div class="alert alert-warning alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <p>Hey, heads up! Our hamsters send messages that are scheduled every 5 minutes. So if yours isn't sent on your specified time, it should be sent shortly!</p>
+    </div>
     <table class="table table-bordered table-striped table-responsive">
        <thead>
          <tr>
