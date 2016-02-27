@@ -13,7 +13,11 @@ class User < ActiveRecord::Base
 
   validates :first_name, presence: true
   validates :last_name, presence: true
+  #validates :quota_limit_check, message: "You've exceeded your quota"
 
+  def quota_limit_check
+    self.quota < self.quota_limit
+  end
 
   def full_name
     "#{first_name} #{last_name}"

@@ -1,6 +1,7 @@
 class SMS
-  def initialize(to_phone_number)
+  def initialize(to_phone_number, user_id)
     @to_phone_number = to_phone_number
+    @user_id = user_id
   end
 
   def client
@@ -14,5 +15,10 @@ class SMS
       :to => @to_phone_number,
       :body => body
     )
+    if @user_id.present?
+       user = User.find(@user_id)
+       user.increment(:quota)
+       user.save
+    end
   end
 end
