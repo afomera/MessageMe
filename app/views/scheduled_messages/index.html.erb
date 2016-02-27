@@ -9,6 +9,7 @@
          <th>Group Name</th>
          <th>Body</th>
          <th>Scheduled at</th>
+         <th>Status</th>
          <th></th>
        </tr>
      </thead>
@@ -26,10 +27,20 @@
            <%= message.body %>
          </td>
          <td>
-           <%= message.scheduled_at %>
+           <%= local_time message.scheduled_at %>
          </td>
          <td>
           <%= message.status %>
+         </td>
+         <td>
+           <% unless message.status == 'sent' %>
+             <%= link_to edit_scheduled_message_path(message) do %>
+              <%= fa_icon "pencil 2x" %> &nbsp;
+             <% end %>
+             <%= link_to scheduled_message_path(message), method: :delete, data: { confirm: "Are you sure you want to delete this scheduled message?" } do %>
+              <%= fa_icon "trash-o 2x" %>
+             <% end %>
+           <% end %>
          </td>
        </tr>
        <% end %>

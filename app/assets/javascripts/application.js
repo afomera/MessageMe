@@ -17,6 +17,7 @@
 //= require turbolinks
 //= require moment
 //= require bootstrap-datetimepicker
+//= require local_time
 //= require_tree .
 
 $(document).ready(function() {
