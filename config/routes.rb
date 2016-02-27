@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :scheduled_messages
 
   get 'dashboard' => 'dashboard#index'
+  get 'terms' => 'pages#terms'
+  get 'privacy' => 'pages#privacy'
 
   authenticated :user do
     root to: "dashboard#index", as: :authenticated_root
