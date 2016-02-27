@@ -5,7 +5,7 @@ def bootstrap_class_for flash_type
 
  def flash_messages(opts = {})
    flash.each do |msg_type, message|
-     concat(content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)} alert-dismissible", role: 'alert') do
+     concat(content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)} alert-dismissible alert-fade", role: 'alert') do
          concat(content_tag(:button, class: 'close', data: { dismiss: 'alert' }) do
            concat content_tag(:span, '&times;'.html_safe, 'aria-hidden' => true)
            concat content_tag(:span, 'Close', class: 'sr-only')
@@ -33,7 +33,7 @@ module ActionView
         existing_time = @object.send(method)
         formatted_time = existing_time.to_time.strftime("%F %I:%M %p") if existing_time.present?
         @template.content_tag(:div, :class => "input-group") do
-          @template.content_tag(:span, @template.content_tag(:span, "", :class => "fa fa-calendar") ,:class => "input-group-addon") + 
+          @template.content_tag(:span, @template.content_tag(:span, "", :class => "fa fa-calendar") ,:class => "input-group-addon") +
           text_field(method, :value => formatted_time, :class => "form-control", :id => "datetimepicker", :"data-date-format" => "YYYY-MM-DD hh:mm A")
 
         end

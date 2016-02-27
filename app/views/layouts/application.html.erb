@@ -13,6 +13,29 @@
 
   <div class="container-fluid">
     <%= flash_messages %>
+
+
+	<% unless controller_name == 'pages' %>
+    <% if user_signed_in? %>
+      <% unless current_user.quota_limit_check %>
+	     <div class="alert alert-warning alert-dismissible" role="alert">
+	        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <div class="row">
+	          <div class="pull-left col-md-pull-10">
+	              &nbsp; <i class="fa fa-fw fa-exclamation-triangle fa-5x"></i>
+	          </div>
+	          <div class="col-md-10">
+	            <h4><strong>Quota Limit Reached</strong></h4>
+	            <div class="pull-right">
+	              <%= link_to "Contact Support", new_contact_form_path, class: "btn btn-danger" %>
+	            </div>
+	              <p>Sorry, but it appears you've reached the quota limit for your account. We have these limits in place to prevent unwarrented use and abuse of our service. Please contact us to learn how to raise your limit. <%= link_to "Click here.", new_contact_form_path, class: "alert-link" %></p>
+	          </div>
+	        </div>
+         </div>
+      <% end %>
+    <% end %>
+  <% end #End Check for Quota Limit %>
     <%= yield %>
 
     <footer>
