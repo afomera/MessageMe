@@ -1,53 +1,57 @@
-<div class="col-sm-8 col-sm-offset-2">
-  <h1>All Contacts</h1>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h1>Address Book</h1>
 
-  <%= link_to 'New contact', new_contact_path, class: 'btn btn-primary' %>
-  <hr>
-  <table class="table table-bordered table-striped table-responsive">
-     <thead>
-       <tr>
-         <th>Name</th>
-         <th>Phone Number</th>
-         <th>Email</th>
-         <th></th>
-         <th>Add to Group</th>
-       </tr>
-     </thead>
-     <tbody>
+    <%= link_to 'New contact', new_contact_path, class: 'btn btn-primary' %>
+      <%= link_to groups_path, class: 'btn btn-info' do %>
+        <i class="fa fa-group fa-fw"></i> Group Management
+      <% end %>
+    <hr>
+    <table class="table table-bordered table-striped table-responsive">
+       <thead>
+         <tr>
+           <th>Name</th>
+           <th>Phone Number</th>
+           <th>Email</th>
+           <th></th>
+           <th>Add to Group</th>
+         </tr>
+       </thead>
+       <tbody>
 
-       <% @contacts.each do |contact| %>
-       <tr>
-         <td>
-           <%= contact.first_name + " " + contact.last_name %>
-         </td>
-         <td>
-           <%= contact.phone_number %>
-         </td>
-         <td>
-           <%= contact.email_address %>
-         </td>
-         <td>
-           <%= link_to edit_contact_path(contact) do %>
-            <%= fa_icon "pencil 2x" %> &nbsp;
-           <% end %>
-           <%= link_to contact_path(contact), method: :delete, data: { confirm: "Are you sure you want to delete #{contact.first_name} #{contact.last_name}?" } do %>
-            <%= fa_icon "trash-o 2x" %>
-           <% end %>
-         </td>
-         <td>
-         <div class="form-inline">
-           <%= form_tag contact_groups_path do %>
-           <%= hidden_field_tag :contact_id, contact.id %>
-        <div class="form-group">
-           <%= select_tag :group_id, options_from_collection_for_select(current_user.groups.all, :id, :name), class: 'form-control' %>
+         <% @contacts.each do |contact| %>
+         <tr>
+           <td>
+             <%= contact.first_name + " " + contact.last_name %>
+           </td>
+           <td>
+             <%= contact.phone_number %>
+           </td>
+           <td>
+             <%= contact.email_address %>
+           </td>
+           <td>
+             <%= link_to edit_contact_path(contact) do %>
+              <%= fa_icon "pencil 2x" %> &nbsp;
+             <% end %>
+             <%= link_to contact_path(contact), method: :delete, data: { confirm: "Are you sure you want to delete #{contact.first_name} #{contact.last_name}?" } do %>
+              <%= fa_icon "trash-o 2x" %>
+             <% end %>
+           </td>
+           <td>
+           <div class="form-inline">
+             <%= form_tag contact_groups_path do %>
+             <%= hidden_field_tag :contact_id, contact.id %>
+          <div class="form-group">
+             <%= select_tag :group_id, options_from_collection_for_select(current_user.groups.all, :id, :name), class: 'form-control' %>
+           </div>
+             <%= submit_tag "Add to Group", class: 'btn btn-primary' %>
          </div>
-           <%= submit_tag "Add to Group", class: 'btn btn-primary' %>
-       </div>
-           <% end %>
-         </td>
-       </tr>
-       <% end %>
-     </tbody>
-   </table>
-
+             <% end %>
+           </td>
+         </tr>
+         <% end %>
+       </tbody>
+     </table>
+  </div>
 </div>

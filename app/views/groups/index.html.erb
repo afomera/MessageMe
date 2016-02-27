@@ -1,41 +1,43 @@
-<div class="col-sm-8 col-sm-offset-2">
-  <h1>All Groups</h1>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h1>All Groups</h1>
 
-  <%= link_to 'New Group', new_group_path, class: 'btn btn-primary' %>
-  <hr>
-  <table class="table table-bordered table-striped table-responsive">
-     <thead>
-       <tr>
-         <th>Name</th>
-         <th>Description</th>
-         <th># of Contacts</th>
-         <th></th>
-       </tr>
-     </thead>
-     <tbody>
+    <%= link_to 'New Group', new_group_path, class: 'btn btn-primary' %>
+    <hr>
+    <table class="table table-bordered table-striped table-responsive">
+       <thead>
+         <tr>
+           <th>Name</th>
+           <th>Description</th>
+           <th># of Contacts</th>
+           <th></th>
+         </tr>
+       </thead>
+       <tbody>
 
-       <% @groups.each do |group| %>
-       <tr>
-         <td>
-           <%= group.name %>
-         </td>
-         <td>
-           <%= group.description %>
-         </td>
-         <td>
-           <%= group.contacts.count %>
-         </td>
-         <td>
-           <%= link_to edit_group_path(group) do %>
-            <%= fa_icon "pencil 2x" %> &nbsp;
-           <% end %>
-           <%= link_to group_path(group), method: :delete, data: { confirm: "Are you sure you want to delete #{group.name}?" } do %>
-            <%= fa_icon "trash-o 2x" %>
-           <% end %>
-         </td>
-       </tr>
-       <% end %>
-     </tbody>
-   </table>
+         <% @groups.each do |group| %>
+         <tr>
+           <td>
+             <%= group.name %>
+           </td>
+           <td>
+             <%= group.description %>
+           </td>
+           <td>
+             <%= group.contacts.count %>
+           </td>
+           <td>
+             <%= link_to edit_group_path(group) do %>
+              <%= fa_icon "pencil 2x" %> &nbsp;
+             <% end %>
+             <%= link_to group_path(group), method: :delete, data: { confirm: "Are you sure you want to delete #{group.name}?" } do %>
+              <%= fa_icon "trash-o 2x" %>
+             <% end %>
+           </td>
+         </tr>
+         <% end %>
+       </tbody>
+     </table>
 
+  </div>
 </div>

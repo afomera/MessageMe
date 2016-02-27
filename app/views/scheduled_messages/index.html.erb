@@ -1,50 +1,52 @@
-<div class="col-sm-8 col-sm-offset-2">
-  <h1>Scheduled Messages</h1>
+ <div class="row">
+   <div class="col-sm-8 col-sm-offset-2">
+    <h1>Scheduled Messages</h1>
 
-  <%= link_to 'New Scheduled Message', new_scheduled_message_path, class: 'btn btn-primary' %>
-  <hr>
-  <table class="table table-bordered table-striped table-responsive">
-     <thead>
-       <tr>
-         <th>Group Name</th>
-         <th>Body</th>
-         <th>Scheduled at</th>
-         <th>Status</th>
-         <th></th>
-       </tr>
-     </thead>
-     <tbody>
+    <%= link_to 'New Scheduled Message', new_scheduled_message_path, class: 'btn btn-primary' %>
+    <hr>
+    <table class="table table-bordered table-striped table-responsive">
+       <thead>
+         <tr>
+           <th>Group Name</th>
+           <th>Body</th>
+           <th>Scheduled at</th>
+           <th>Status</th>
+           <th></th>
+         </tr>
+       </thead>
+       <tbody>
 
-       <% @scheduled_messages.sort_by(&:status).each do |message| %>
-       <tr>
-         <td>
-           <%= message.group.name %> to:<br>
-           <% message.group.contacts.each do |c| %>
-             <%= c.full_name_with_phone %>
-           <% end %>
-         </td>
-         <td>
-           <%= message.body %>
-         </td>
-         <td>
-           <%= local_time message.scheduled_at %>
-         </td>
-         <td>
-          <%= message.status %>
-         </td>
-         <td>
-           <% unless message.status == 'sent' %>
-             <%= link_to edit_scheduled_message_path(message) do %>
-              <%= fa_icon "pencil 2x" %> &nbsp;
+         <% @scheduled_messages.sort_by(&:status).each do |message| %>
+         <tr>
+           <td>
+             <%= message.group.name %> to:<br>
+             <% message.group.contacts.each do |c| %>
+               <%= c.full_name_with_phone %>
              <% end %>
-             <%= link_to scheduled_message_path(message), method: :delete, data: { confirm: "Are you sure you want to delete this scheduled message?" } do %>
-              <%= fa_icon "trash-o 2x" %>
+           </td>
+           <td>
+             <%= message.body %>
+           </td>
+           <td>
+             <%= local_time message.scheduled_at %>
+           </td>
+           <td>
+            <%= message.status %>
+           </td>
+           <td>
+             <% unless message.status == 'sent' %>
+               <%= link_to edit_scheduled_message_path(message) do %>
+                <%= fa_icon "pencil 2x" %> &nbsp;
+               <% end %>
+               <%= link_to scheduled_message_path(message), method: :delete, data: { confirm: "Are you sure you want to delete this scheduled message?" } do %>
+                <%= fa_icon "trash-o 2x" %>
+               <% end %>
              <% end %>
-           <% end %>
-         </td>
-       </tr>
-       <% end %>
-     </tbody>
-   </table>
+           </td>
+         </tr>
+         <% end %>
+       </tbody>
+     </table>
 
+  </div>
 </div>
