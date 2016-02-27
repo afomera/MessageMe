@@ -8,7 +8,7 @@
   <div class="col-sm-3 col-sm-offset-1">
     <h1><%= fa_icon 'book', text: 'Contacts'%></h1>
     <p>
-      <%= link_to root_path do %>
+      <% link_to root_path do %>
         <%= fa_icon 'plus', text: 'Add Contact' %>
       <% end %>
     </p>
@@ -20,9 +20,8 @@
 
   <div class="col-sm-3 col-sm-offset-1">
     <h1><%= fa_icon 'group', text: 'Groups'%></h1>
-
     <p>
-      <%= link_to root_path do %>
+      <% link_to root_path do %>
         <%= fa_icon 'plus', text: 'Add Group' %>
       <% end %>
     </p>
@@ -33,7 +32,7 @@
             <li>  <%= contact.first_name %>
               <%= contact.last_name %> |
               <%= contact.phone_number %>
-              <%= link_to 'Del',group_contact_path(group, contact), method: :delete, data: {confirm: 'Are you sure?'} %>
+              <%= link_to 'X',group_contact_path(group, contact), method: :delete, data: {confirm: 'Are you sure?'} %>
             </li>
             <% end %>
       </ul>

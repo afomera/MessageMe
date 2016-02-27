@@ -1,30 +1,38 @@
-<%= form_for (@message) do |f| %>
+<% if current_user.contacts.empty? %>
+  <p>Please <%= link_to "add a contact", new_contact_path %>. After you add a contact you can send messages.</p>
+<% else %>
+  <%= form_for (@message) do |f| %>
 
-  <% if @message.errors.any? %>
-  <h3 class="text-center">Whoops! Please fix the following errors!</h3>
-    <ul>
-      <% @message.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
+    <% if @message.errors.any? %>
+    <h3 class="text-center">Whoops! Please fix the following errors!</h3>
+      <ul>
+        <% @message.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <div class="form-group">
+      <% f.text_field :to_phone_number, placeholder: 'Phone Number, no dashes please!', class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <a rel="nofollow" class="send-group-msg">Send a group message instead</a><br>
+      <div class="contact-selection">
+        <%= f.collection_select :to_phone_number, current_user.contacts.all, :phone_number, :full_name_with_phone, {prompt: 'Select a contact'}, {class: 'form-control'} %>
+      </div>
+      <div class="group-selection hidden">
+        <% if current_user.groups.empty? %>
+          <p>Please <%= link_to 'add a group', new_group_path %> first</p>
+        <% else %>
+          <%= f.collection_select :group_id, current_user.groups.all, :id, :name, {prompt: 'Select a Group'}, {class: 'form-control'} %>
+        <% end %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.text_area :body, placeholder: 'What would you like to say?', rows: '4', class: 'form-control' %>
+    </div>
+    <div class="form-group">
+        <%= f.submit "Send Message", class: 'btn btn-primary' %>
+    </div>
   <% end %>
-
-  <div class="form-group">
-    <% f.text_field :to_phone_number, placeholder: 'Phone Number, no dashes please!', class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <a rel="nofollow" class="send-group-msg">Send a group message instead</a><br>
-    <div class="contact-selection">
-      <%= f.collection_select :to_phone_number, current_user.contacts.all, :phone_number, :full_name_with_phone, {prompt: 'Select a contact'}, {class: 'form-control'} %>
-    </div>
-    <div class="group-selection hidden">
-        <%= f.collection_select :group_id, current_user.groups.all, :id, :name, {prompt: 'Select a Group'}, {class: 'form-control'} %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.text_area :body, placeholder: 'What would you like to say?', rows: '4', class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.submit "Send Message", class: 'btn btn-primary' %>
-  </div>
 <% end %>

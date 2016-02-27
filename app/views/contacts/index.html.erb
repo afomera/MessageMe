@@ -39,6 +39,7 @@
              <% end %>
            </td>
            <td>
+             <% unless current_user.groups.empty? %>
            <div class="form-inline">
              <%= form_tag contact_groups_path do %>
              <%= hidden_field_tag :contact_id, contact.id %>
@@ -47,6 +48,7 @@
            </div>
              <%= submit_tag "Add to Group", class: 'btn btn-primary' %>
          </div>
+             <% end %>
              <% end %>
            </td>
          </tr>

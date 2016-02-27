@@ -3,6 +3,7 @@
 
  $well-bg: #FFFFFF;
  $navbar-default-brand-color: #2ecc71;
+ $navbar-default-bg: white;
  $brand-primary: #2ecc71;
 
  @import "bootstrap-sprockets";
@@ -13,7 +14,7 @@
 
  html.turbolinks-progress-bar::before {
    background-color: red !important;
-   height: 5px !important;
+   height: 3px !important;
  }
 
  body {
