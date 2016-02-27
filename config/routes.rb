@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :contacts, except: [:show]
   resources :contact_groups, only: [:create]
+  resources :contact_form, only: [:new, :create], path: 'contact_us'
   resources :groups, except: [:show] do
     # Janky work around to be able to pass in group_id then contact to delete
     # Contacts from Groups (ContactGroup join table)
