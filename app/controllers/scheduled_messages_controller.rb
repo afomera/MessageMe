@@ -14,7 +14,7 @@ class ScheduledMessagesController < ApplicationController
     @scheduled_message = current_user.scheduled_messages.build(scheduled_message_params)
     @scheduled_message.status = 'pending'
     if @scheduled_message.save
-      redirect_to root_path, notice: 'Scheduled Message Saved!'
+      redirect_to scheduled_messages_path, notice: 'Scheduled Message Saved!'
     else
       render 'new'
     end
@@ -25,7 +25,7 @@ class ScheduledMessagesController < ApplicationController
 
   def update
     if @scheduled_message.update(scheduled_message_params)
-      redirect_to root_path, notice: 'That scheduled message has been updated!'
+      redirect_to scheduled_messages_path, notice: 'That scheduled message has been updated!'
     else
       render 'edit'
     end
