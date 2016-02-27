@@ -80,4 +80,15 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'http://tmsg.io' }
 
   config.time_zone = 'Central Time (US & Canada)'
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :address        => 'smtp.sendgrid.net',
+      :port           => '587',
+      :authentication => :plain,
+      :user_name      => Rails.application.secrets.sendgrid_username,
+      :password       => Rails.application.secrets.sendgrid_password,
+      :domain         => 'sendgrid.tmsg.io',
+      :enable_starttls_auto => true
+  }
 end
