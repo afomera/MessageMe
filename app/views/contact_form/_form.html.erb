@@ -1,21 +1,24 @@
 <%= form_for @contact_form, url: contact_form_index_path do |f| %>
-   <%= f.label :name %><br>
-   <%= f.text_field :name, required: true %>
+  <div class="form-group">
+   <%= f.label :name %>
+   <%= f.text_field :name, class: 'form-control', placeholder: 'Your Name', required: true %>
+  </div>
 
-   <br>
+  <div class="form-group">
+   <%= f.label :email %>
+   <%= f.email_field :email, class: 'form-control', placeholder: 'Email Address', required: true %>
+  </div>
 
-   <%= f.label :email %><br>
-   <%= f.email_field :email, required: true %>
+  <div class="form-group">
+   <%= f.label :message %>
+   <%= f.text_area :message, class: 'form-control', placeholder: 'What do you need help with or have a question about?', rows: '5', as: :text %>
+  </div>
 
-   <br>
-
-   <%= f.label :message %><br>
-   <%= f.text_area :message, as: :text %>
-
-   <div class="hidden">
-       <%= f.label :nickname %><br>
-       <%= f.text_field :nickname, hint: 'leave this field blank' %>
-   </div>
-
-   <%= f.submit 'Send Message', class: "button" %>
+  <div class="form-group hidden">
+     <%= f.label :nickname %><br>
+     <%= f.text_field :nickname, hint: 'leave this field blank' %>
+  </div>
+  <div class="form-group">
+   <%= f.submit 'Send Message', class: "btn btn-primary" %>
+  </div>
 <% end %>

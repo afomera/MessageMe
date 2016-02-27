@@ -13,12 +13,8 @@ It was originally planned to be SaaS app, where it'd take payments for your usag
 * Devise inviteable to add Users to the site to start?
 * Pretty up Devise Mailers. Add custom mailers of my our own, welcome email with Getting Started Video
 * Getting Started Video / How to Use
-* Support System / Email Contact form
 * Privacy Policy / Terms of Use?
 * Create account limits, allow user to contact Team to raise limits.
-* Would like to be able to handle the replies in some shape or fashion
-  * Because of how the app is setup, a generalized reply sent letting them know replies are not allowed will probably have to do for now.
-  * Biggest concern I have is the messages wouldn't identify who sent them, so maybe we should tag on the user name to the messages to ensure the people know who sent them?
 * Admin Interface for viewing logs / account limits / subscribed users etc.
 
 ## Contributing
