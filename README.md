@@ -7,11 +7,8 @@ Right now it has the ability to send an text message to a phone number inputted.
 It was originally planned to be SaaS app, where it'd take payments for your usage of the app, but due to the terms of payment providers that is not going to happen.
 
 ## Roadmap
-* Polish the views, cleanup the UI
 * AJAXify dashboard for contacts + groups + messaging
-* Prep for deployment, ensure RVM on production server is setup to handle whenever (special rvm stuff on readme)
-* Devise-inviteable to add Users to the site to start?
-* DEPLOY BABY.
+* Bug fixes
 
 ## Contributing
 Feel free to submit pull requests <3. Instructions on how to get the project setup will come soon.
