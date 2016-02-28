@@ -19,6 +19,13 @@ group :development, :test do
   gem 'quiet_assets'
 end
 
+group :development do
+  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano-bundler', '~> 1.1.4'
+  gem 'capistrano-rails', '~> 1.1.2'
+  gem 'capistrano-rvm', '~> 0.1.2'
+end
+
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'devise', '~> 3.5.2'
