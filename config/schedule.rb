@@ -17,7 +17,7 @@
 #   runner "AnotherModel.prune_old_records"
 # end
 
-every 5.minute do
+every 1.minute do
   rake 'schedule_message'
 end
 
