@@ -18,6 +18,6 @@
     <%= f.text_area :body, placeholder: 'What would you like to say?', rows: '4', class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.submit "Schedule Message", class: 'btn btn-primary' %>
+    <%= f.button "Schedule Message", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Scheduling message" } %>
   </div>
 <% end %>
