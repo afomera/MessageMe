@@ -19,6 +19,6 @@
      <%= f.text_field :nickname, hint: 'leave this field blank' %>
   </div>
   <div class="form-group">
-   <%= f.submit 'Send Message', class: "btn btn-primary" %>
+    <%= f.button "Send Message", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Sending..."} %>
   </div>
 <% end %>
