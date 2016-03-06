@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     # Contacts from Groups (ContactGroup join table)
     resources :contacts, only: [:destroy], controller: :contact_groups
   end
-  resources :messages
+  resources :messages, only: [:new, :create]
   resource :phone_numbers, only: [:new, :create]
   post 'phone_numbers/verify' => "phone_numbers#verify"
   post 'receive_sms' => 'twilio#index'
