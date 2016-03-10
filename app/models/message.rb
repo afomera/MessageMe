@@ -10,7 +10,7 @@ class Message < ActiveRecord::Base
   attr_reader :group_id
 
   def user_quota_limit
-    unless self.user.quota_limit_check
+    if self.user.exceeded_quota_limit?
       errors.add(:message, "would exceed your quota. So it cannot be sent.")
     end
   end

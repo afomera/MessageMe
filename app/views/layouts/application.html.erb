@@ -16,7 +16,7 @@
 
 	<% unless controller_name == 'pages' %>
     <% if user_signed_in? %>
-      <% unless current_user.quota_limit_check %>
+      <% if current_user.exceeded_quota_limit? %>
 	     <div class="alert alert-warning alert-dismissible" role="alert">
 	        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	        <div class="row">

@@ -6,8 +6,8 @@ class ScheduledMessage < ActiveRecord::Base
   validate :user_quota_limit
 
   def user_quota_limit
-    unless self.user.quota_limit_check
-      errors.add(:scheduled_message, "would exceeded your quota. So we cannot schedule it.")
+    if self.user.exceeded_quota_limit?
+      errors.add(:scheduled_message, "would exceed your quota. So it cannot be sent.")
     end
   end
 end
