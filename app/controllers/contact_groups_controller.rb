@@ -3,9 +3,14 @@ class ContactGroupsController < ApplicationController
 
   def create
     @contact = Contact.find(params[:contact_id])
-    @group = Group.find(params[:group_id])
-    ContactGroup.find_or_create_by(contact: @contact, group: @group)
-    redirect_to contacts_path, notice: "Added #{@contact.first_name} to #{@group.name}"
+
+    if params[:group_id].blank?
+      redirect_to contacts_path, notice: "Sorry you must select a group to add #{@contact.first_name + " " + @contact.last_name} to."
+    else
+      @group = Group.find(params[:group_id])
+      ContactGroup.find_or_create_by(contact: @contact, group: @group)
+      redirect_to contacts_path, notice: "Added #{@contact.first_name} to #{@group.name}"
+    end
   end
 
   def destroy

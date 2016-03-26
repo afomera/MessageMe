@@ -44,7 +44,7 @@
              <%= form_tag contact_groups_path do %>
              <%= hidden_field_tag :contact_id, contact.id %>
           <div class="form-group">
-             <%= select_tag :group_id, options_from_collection_for_select(current_user.groups.all, :id, :name), class: 'form-control' %>
+             <%= select_tag :group_id, options_from_collection_for_select(current_user.groups.all, :id, :name), include_blank: true,  class: 'form-control' %>
            </div>
              <%= submit_tag "Add to Group", class: 'btn btn-primary' %>
          </div>
