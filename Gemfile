@@ -12,7 +12,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -22,20 +21,38 @@ group :development, :test do
 end
 
 group :development do
+  gem 'web-console', '~> 2.0'
+
+  # Deployment
   gem 'capistrano', '~> 3.4.0'
   gem 'capistrano-bundler', '~> 1.1.4'
   gem 'capistrano-rails', '~> 1.1.2'
   gem 'capistrano-rvm', '~> 0.1.2'
 end
 
+# General UI Improvements
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
-gem 'devise', '~> 3.5.2'
-gem 'twilio-ruby', '~> 4.6.0'
-gem 'sucker_punch', '~> 2.0'
+
+# Make turbolinks behave
 gem 'jquery-turbolinks', '~> 2.1'
-gem 'whenever', require: false
+
+# DateTimePicker for the scheduling
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
-gem 'mail_form', '~> 1.5.1'
+
+# Nicely converts timestamps to be the users, client side.
 gem 'local_time'
+
+# User authentication
+gem 'devise', '~> 3.5.2'
+
+# Twilio gem for sending messages
+gem 'twilio-ruby', '~> 4.6.0'
+
+# Background job & scheduling with cron
+gem 'sucker_punch', '~> 2.0'
+gem 'whenever', require: false
+
+# Sends the contact form email
+gem 'mail_form', '~> 1.5.1'
