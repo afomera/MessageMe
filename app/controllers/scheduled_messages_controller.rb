@@ -3,7 +3,7 @@ class ScheduledMessagesController < ApplicationController
   before_action :set_scheduled_message, only: [:edit, :update, :destroy]
 
   def index
-    @scheduled_messages = current_user.scheduled_messages.all.order("created_at ASC")
+    @scheduled_messages = current_user.scheduled_messages.includes(:group).all.order("created_at ASC")
   end
 
   def new

@@ -17,6 +17,8 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
+  # Bullet to help make sure we don't n+1
+  gem 'bullet'
 end
 
 group :development do
