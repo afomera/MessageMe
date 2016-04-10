@@ -1,9 +1,6 @@
 require 'test_helper'
 
 class ScheduledMessagesControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-  end
+  # Delete the tests for now will replace with better tests soon
 
 end
