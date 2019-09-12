@@ -44,7 +44,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 gem 'local_time'
 
 # User authentication
-gem 'devise', '~> 3.5.2'
+gem 'devise', '~> 4.7.1'
 
 # Twilio gem for sending messages
 gem 'twilio-ruby', '~> 4.6.0'
